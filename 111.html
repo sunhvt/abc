@@ -1,0 +1,2097 @@
+
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="imagetoolbar" content="no">
+
+<style type="text/css">
+<!--
+
+
+form#form1 {font:12px tahoma,sans-serif}
+  input{background-color:'#0066CC')}   
+  input{width:expression(((type=="radio")||(type=="checkbox"))?'30':'')} 
+  input{height:expression(((type=="radio")||(type=="checkbox"))?'30':'')} 
+       
+
+.STYLE2 {
+	font-size: 16px;
+	font-weight: bold;
+}
+body,td,th {
+	font-size: 12px;
+}
+sub,sup{
+font-size:14px;}
+a:link {
+	text-decoration: none;
+	color: #0033FF;
+}
+a:visited {
+	text-decoration: none;
+	color: #0000FF;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+a {
+	font-size: 16px;
+}
+.STYLE4 {
+	color: #993300;
+	font-size: 14px;
+}
+.STYLE8 {
+	font-family: "黑体";
+	color: #0000FF;
+    font-size: 28px}
+.STYLE15 {font-size: 14px}
+.STYLE16 {color: #993300; font-weight: bold; font-size: 14px; }
+.STYLE17 {color: #FF0000}
+.STYLE22 {font-size: 24px}
+.STYLE23 {font-size: 12px}
+.STYLE24 {font-size: 16px}
+.STYLE26 {
+	font-size: 16px;
+	color: #003399;
+	font-weight: bold;
+}
+.STYLE28 {color: #0000FF}
+.STYLE29 {font-size: 12px; color: #0000FF; }
+
+
+
+-->
+</style>
+
+<title>安全生产在线模拟考试</title></head>
+
+
+<SCRIPT language="javascript">
+var UserAnswer = new Array(151);//考生答案
+var PaperAnswer= new Array(151);//试卷答案
+var panjuan = new Array(151);//判卷结果
+var font1=30;    //题目字体大小。。。。30px
+var timeid     = null;
+var tempi=1;  //现在题目颜色
+var ytempi=1;//原题颜色
+var ticount = 100
+//100 //最大题目数量 ，题目总数。
+var ttcount    = 120*60
+
+////5400   
+//考试时间，秒
+var yycount = 0; //已用时间
+
+var pan=1
+var dan=51
+var duo=91
+
+var panscore=1;
+var danscore=1;
+var duoscore=1;
+
+var pannum=50;
+var dannum=40;
+var duonum=10;
+
+var panmiao='提示信息：判断题,选择一个正确答案。(每题1分、共50题50分)';
+var danmiao='提示信息：单选题,选择一个正确答案。(每题1分、共40题40分)';
+var duomiao='提示信息：多选题,选择一个以上正确答案。(每题1分、共10题10分)';
+
+var innerHTMLs;
+var hideanswer =true;
+for(var  k  =0;k<151;k++)
+{
+	UserAnswer[k]="";
+	panjuan[k]=0;
+}
+
+
+
+
+</script>
+
+
+
+
+<body>
+
+<table width="98%" height="600" border="0" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td width="20%" rowspan="4" align="center" valign="top" bgcolor="#ECE9D8"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="406">
+		  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="word-break:break-all;word-break:break-word">
+          <tr height="100">
+            <td align="center"><img src="no.jpg" width="80" height="100" border="1" alt="没有照片"></td>
+          </tr>
+          <tr>
+            <td align="left"><strong><span class="STYLE4">&nbsp;&nbsp;<span class="STYLE24">考生姓名</span>:</span></strong></td>
+          </tr>
+		  <tr>
+		    <td align="left" ><span class="STYLE15"><strong><span class="STYLE4">&nbsp;&nbsp;</span></strong><span class="STYLE26">模拟考试考生</span></span></td>
+          </tr>
+          <tr>
+            <td align="left"><span class="STYLE16"><strong><span class="STYLE4">&nbsp;&nbsp;</span></strong><span class="STYLE24">身份证号</span>:</span></td>
+          </tr>
+          <tr>
+		    <td align="left" ></td>
+          </tr>
+          <tr>
+		    <td  height="8"><span class="STYLE15">&nbsp;&nbsp;<span class="STYLE26">0</span></span></td>
+          </tr>		  
+          <tr>
+            <td align="left"><span class="STYLE16"><strong><span class="STYLE4">&nbsp;&nbsp;</span></strong><span class="STYLE24">考核类型</span>:</span></td>
+          </tr>
+          <tr>
+		    <td align="left" ><strong><span class="STYLE26">&nbsp;&nbsp;危险化学品安全作业</span></strong></td>
+          </tr>
+          <tr>
+		    <td align="right"></td>
+          </tr>		  
+        </table>	
+			
+		<table  border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td align="center" valign="top"><input name="image" type="hidden" id="ddttre" onClick="document.all.mmge.style.display = '' ;document.all.mmge.style.height=100;self.location.href='#top';ddqq.innerHTML=ddqk();" src="images/dtqk.jpg" width="140" height="64">
+           </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top"><input name="image3" type="hidden" id="tjb3"   src="images/tjsj.jpg" >
+              <span class="STYLE17">
+              <input type="submit" id="tjb" style="height:40px; width:120px; font-size:18px; font-weight:bold" name="image2" value=" 提交试卷 " onClick="SendPaper();">
+              </span></td>
+          </tr>
+          <tr>
+            <td align="center" height="30" class="STYLE29">
+			
+			<span id="kscj"></span><Br>
+			<span id="ttccd">剩余时间：xx分xx秒</span></td>
+          </tr>
+	          
+			  
+			  <tr>
+            <td  height="40" align="center">
+<fieldset class="fiedset">
+      <legend class="STYLE28"><span class="STYLE6 STYLE23">考试时长:120分钟。已用时间:</span>	  </legend>
+          <div id="yiyongtime" align="center"></div>
+</fieldset>			 </td>
+          </tr>			  
+		 <tr>
+		 <td>
+		  
+ 
+			<fieldset class="fiedset">
+      <legend><span class="STYLE6 STYLE23 STYLE28">共100题，当前第<span id="iiicount"></span>题（点击题号显示题目）</span>	  </legend>
+	        <table width="100%" align="center"   cellpadding="0" cellspacing="0" >
+	   <Tr height="21px" >
+	     <td width="40px" >题号</td>
+		 <td width="40px" >题型</td>
+		 <td width="80px">考生答案</td>
+		 <td width="120px">判卷(正确答案)</td>
+		 <Td width="60px" align="left">标记</Td>
+	   </Tr>
+	   </table>
+<div id="ppmainq" align="center" style=" width:270;height:300;overflow:auto;">			
+
+		
+ 	<table width="100%"  border="1" bordercolor="#999999" cellpadding="0" cellspacing="0">
+	 
+	 
+	 
+	   <Tr id="ti1" style="cursor:pointer;" onClick="xianshidaan2(1);" height="28px" >
+	     <td width="30px" align="center">1<div id="papercontent1" style="display:none;"><p>安全帽超过使用期限后可以继续使用。（   ）</p></div><input type="hidden" id="snum1" value="2">
+		  <input type="hidden" id="stype1" value="判断">
+		  <input type="hidden" id="biaojiv1" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan1" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan1" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji1" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti2" style="cursor:pointer;" onClick="xianshidaan2(2);" height="28px" >
+	     <td width="30px" align="center">2<div id="papercontent2" style="display:none;"><p>柴油（主要指焦化柴油、重油催化柴油）加氢精制主要是脱除油品中的S、N，使烯烃饱和，脱除胶质，提高油品的安定性和使用性能。（   ）</p></div><input type="hidden" id="snum2" value="2">
+		  <input type="hidden" id="stype2" value="判断">
+		  <input type="hidden" id="biaojiv2" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan2" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan2" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji2" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti3" style="cursor:pointer;" onClick="xianshidaan2(3);" height="28px" >
+	     <td width="30px" align="center">3<div id="papercontent3" style="display:none;"><p>循环氢量增大会导致床层压降增大。（   ）</p></div><input type="hidden" id="snum3" value="2">
+		  <input type="hidden" id="stype3" value="判断">
+		  <input type="hidden" id="biaojiv3" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan3" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan3" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji3" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti4" style="cursor:pointer;" onClick="xianshidaan2(4);" height="28px" >
+	     <td width="30px" align="center">4<div id="papercontent4" style="display:none;"><p>发电机和电动机等旋转电机起火时，可以用干粉、砂子或泥土灭火。（   ）</p></div><input type="hidden" id="snum4" value="2">
+		  <input type="hidden" id="stype4" value="判断">
+		  <input type="hidden" id="biaojiv4" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan4" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan4" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji4" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti5" style="cursor:pointer;" onClick="xianshidaan2(5);" height="28px" >
+	     <td width="30px" align="center">5<div id="papercontent5" style="display:none;"><p>油品特性因数（K值）低，说明含芳烃多。（   ）</p></div><input type="hidden" id="snum5" value="2">
+		  <input type="hidden" id="stype5" value="判断">
+		  <input type="hidden" id="biaojiv5" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan5" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan5" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji5" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti6" style="cursor:pointer;" onClick="xianshidaan2(6);" height="28px" >
+	     <td width="30px" align="center">6<div id="papercontent6" style="display:none;"><p>在使用氧气呼吸器前清净罐内装填的氢氧化钙吸收剂应为粉红色圆柱状颗粒。如变为淡黄色，即为失效，应及时更换。（   ）</p></div><input type="hidden" id="snum6" value="2">
+		  <input type="hidden" id="stype6" value="判断">
+		  <input type="hidden" id="biaojiv6" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan6" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan6" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji6" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti7" style="cursor:pointer;" onClick="xianshidaan2(7);" height="28px" >
+	     <td width="30px" align="center">7<div id="papercontent7" style="display:none;"><p>禁止标志图形为黑色，禁止符号与文字底色为红色。（   ）</p></div><input type="hidden" id="snum7" value="2">
+		  <input type="hidden" id="stype7" value="判断">
+		  <input type="hidden" id="biaojiv7" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan7" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan7" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji7" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti8" style="cursor:pointer;" onClick="xianshidaan2(8);" height="28px" >
+	     <td width="30px" align="center">8<div id="papercontent8" style="display:none;"><p>压力容器的主要工艺参数是压力和温度。（   ）</p></div><input type="hidden" id="snum8" value="2">
+		  <input type="hidden" id="stype8" value="判断">
+		  <input type="hidden" id="biaojiv8" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan8" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan8" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji8" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti9" style="cursor:pointer;" onClick="xianshidaan2(9);" height="28px" >
+	     <td width="30px" align="center">9<div id="papercontent9" style="display:none;"><p>各式口罩的主体(口鼻罩)脏污时，可用肥皂水洗涤，洗后应在通风处晾。（   ）</p></div><input type="hidden" id="snum9" value="2">
+		  <input type="hidden" id="stype9" value="判断">
+		  <input type="hidden" id="biaojiv9" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan9" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan9" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji9" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti10" style="cursor:pointer;" onClick="xianshidaan2(10);" height="28px" >
+	     <td width="30px" align="center">10<div id="papercontent10" style="display:none;"><p>催化剂装填时，顶部分配盘与上层催化剂床层顶部要留有一段空间。（   ）</p></div><input type="hidden" id="snum10" value="2">
+		  <input type="hidden" id="stype10" value="判断">
+		  <input type="hidden" id="biaojiv10" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan10" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan10" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji10" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti11" style="cursor:pointer;" onClick="xianshidaan2(11);" height="28px" >
+	     <td width="30px" align="center">11<div id="papercontent11" style="display:none;"><p>混合物浓度低于爆炸下限时，既不燃烧也不爆炸。（   ）</p></div><input type="hidden" id="snum11" value="2">
+		  <input type="hidden" id="stype11" value="判断">
+		  <input type="hidden" id="biaojiv11" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan11" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan11" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji11" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti12" style="cursor:pointer;" onClick="xianshidaan2(12);" height="28px" >
+	     <td width="30px" align="center">12<div id="papercontent12" style="display:none;"><p>《特种作业人员安全技术培训考核管理规定》规定危险化学品特种作业人员应当具备初中或者相当于高中及以上文化程度。（   ）</p></div><input type="hidden" id="snum12" value="2">
+		  <input type="hidden" id="stype12" value="判断">
+		  <input type="hidden" id="biaojiv12" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan12" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan12" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji12" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti13" style="cursor:pointer;" onClick="xianshidaan2(13);" height="28px" >
+	     <td width="30px" align="center">13<div id="papercontent13" style="display:none;"><p>机泵的电机超电流后，为保护电机，一般都设置了超电流跳闸保护。（   ）</p></div><input type="hidden" id="snum13" value="2">
+		  <input type="hidden" id="stype13" value="判断">
+		  <input type="hidden" id="biaojiv13" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan13" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan13" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji13" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti14" style="cursor:pointer;" onClick="xianshidaan2(14);" height="28px" >
+	     <td width="30px" align="center">14<div id="papercontent14" style="display:none;"><p>新装置开工条件的确认要经过多级确认。（   ）</p></div><input type="hidden" id="snum14" value="2">
+		  <input type="hidden" id="stype14" value="判断">
+		  <input type="hidden" id="biaojiv14" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan14" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan14" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji14" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti15" style="cursor:pointer;" onClick="xianshidaan2(15);" height="28px" >
+	     <td width="30px" align="center">15<div id="papercontent15" style="display:none;"><p>避雷针、避雷线、避雷网和避雷带都可作为接闪器。（   ）</p></div><input type="hidden" id="snum15" value="2">
+		  <input type="hidden" id="stype15" value="判断">
+		  <input type="hidden" id="biaojiv15" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan15" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan15" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji15" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti16" style="cursor:pointer;" onClick="xianshidaan2(16);" height="28px" >
+	     <td width="30px" align="center">16<div id="papercontent16" style="display:none;"><p>易燃可燃液体贮罐发生着火，若着火罐尚在进料，必须采取措施迅速切断进料。如无法关闭进料阀门，可在消防水枪掩护下进行抢关，或通知送料单位停止送料。（   ）</p></div><input type="hidden" id="snum16" value="2">
+		  <input type="hidden" id="stype16" value="判断">
+		  <input type="hidden" id="biaojiv16" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan16" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan16" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji16" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti17" style="cursor:pointer;" onClick="xianshidaan2(17);" height="28px" >
+	     <td width="30px" align="center">17<div id="papercontent17" style="display:none;"><p>加氢精制因原料不同加工目的不同而有所区别，化学反应基本原理不同。（   ）</p></div><input type="hidden" id="snum17" value="2">
+		  <input type="hidden" id="stype17" value="判断">
+		  <input type="hidden" id="biaojiv17" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan17" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan17" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji17" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti18" style="cursor:pointer;" onClick="xianshidaan2(18);" height="28px" >
+	     <td width="30px" align="center">18<div id="papercontent18" style="display:none;"><p>加氢催化剂再生就是将积聚在催化剂表面的聚合物和结焦物除掉。（   ）</p></div><input type="hidden" id="snum18" value="2">
+		  <input type="hidden" id="stype18" value="判断">
+		  <input type="hidden" id="biaojiv18" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan18" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan18" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji18" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti19" style="cursor:pointer;" onClick="xianshidaan2(19);" height="28px" >
+	     <td width="30px" align="center">19<div id="papercontent19" style="display:none;"><p>加氢装置正常操作调整时必须遵守“先降量后降温”、“先提量后提温”的原则。（   ）</p></div><input type="hidden" id="snum19" value="2">
+		  <input type="hidden" id="stype19" value="判断">
+		  <input type="hidden" id="biaojiv19" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan19" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan19" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji19" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti20" style="cursor:pointer;" onClick="xianshidaan2(20);" height="28px" >
+	     <td width="30px" align="center">20<div id="papercontent20" style="display:none;"><p>加氢装置开停工应遵循“先提量后提温，先降温后降量”的基本原则。（   ）</p></div><input type="hidden" id="snum20" value="2">
+		  <input type="hidden" id="stype20" value="判断">
+		  <input type="hidden" id="biaojiv20" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan20" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan20" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji20" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti21" style="cursor:pointer;" onClick="xianshidaan2(21);" height="28px" >
+	     <td width="30px" align="center">21<div id="papercontent21" style="display:none;"><p>加氢裂化反应是一平行连串反应。（   ）</p></div><input type="hidden" id="snum21" value="2">
+		  <input type="hidden" id="stype21" value="判断">
+		  <input type="hidden" id="biaojiv21" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan21" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan21" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji21" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti22" style="cursor:pointer;" onClick="xianshidaan2(22);" height="28px" >
+	     <td width="30px" align="center">22<div id="papercontent22" style="display:none;"><p>容器或管道直径越小，爆炸范围越大。（   ）</p></div><input type="hidden" id="snum22" value="2">
+		  <input type="hidden" id="stype22" value="判断">
+		  <input type="hidden" id="biaojiv22" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan22" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan22" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji22" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti23" style="cursor:pointer;" onClick="xianshidaan2(23);" height="28px" >
+	     <td width="30px" align="center">23<div id="papercontent23" style="display:none;"><p>加氢精制生成油在进入冷却器前要注入高压洗涤油，以溶解生成的氨和部分硫化氢。（   ）</p></div><input type="hidden" id="snum23" value="2">
+		  <input type="hidden" id="stype23" value="判断">
+		  <input type="hidden" id="biaojiv23" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan23" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan23" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji23" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti24" style="cursor:pointer;" onClick="xianshidaan2(24);" height="28px" >
+	     <td width="30px" align="center">24<div id="papercontent24" style="display:none;"><p>加氢催化剂再生一般采用蒸汽----空气烧焦法。（   ）</p></div><input type="hidden" id="snum24" value="2">
+		  <input type="hidden" id="stype24" value="判断">
+		  <input type="hidden" id="biaojiv24" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan24" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan24" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji24" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti25" style="cursor:pointer;" onClick="xianshidaan2(25);" height="28px" >
+	     <td width="30px" align="center">25<div id="papercontent25" style="display:none;"><p>脱脂是利用脂可溶于某些化学溶剂的原理将其脱除掉。（   ）</p></div><input type="hidden" id="snum25" value="2">
+		  <input type="hidden" id="stype25" value="判断">
+		  <input type="hidden" id="biaojiv25" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan25" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan25" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji25" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti26" style="cursor:pointer;" onClick="xianshidaan2(26);" height="28px" >
+	     <td width="30px" align="center">26<div id="papercontent26" style="display:none;"><p>反应器出现温度偏离时，不必严格执行“启用紧急泄压系统”的规定。（   ）</p></div><input type="hidden" id="snum26" value="2">
+		  <input type="hidden" id="stype26" value="判断">
+		  <input type="hidden" id="biaojiv26" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan26" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan26" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji26" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti27" style="cursor:pointer;" onClick="xianshidaan2(27);" height="28px" >
+	     <td width="30px" align="center">27<div id="papercontent27" style="display:none;"><p>加氢脱金属时，金属在催化剂上沉积，上层浓度高下层浓度低。（   ）</p></div><input type="hidden" id="snum27" value="2">
+		  <input type="hidden" id="stype27" value="判断">
+		  <input type="hidden" id="biaojiv27" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan27" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan27" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji27" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti28" style="cursor:pointer;" onClick="xianshidaan2(28);" height="28px" >
+	     <td width="30px" align="center">28<div id="papercontent28" style="display:none;"><p>各机泵的冷却水中断，必须监护使用甚至停泵。（   ）</p></div><input type="hidden" id="snum28" value="2">
+		  <input type="hidden" id="stype28" value="判断">
+		  <input type="hidden" id="biaojiv28" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan28" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan28" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji28" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti29" style="cursor:pointer;" onClick="xianshidaan2(29);" height="28px" >
+	     <td width="30px" align="center">29<div id="papercontent29" style="display:none;"><p>加氢催化剂干燥结束后，当反应器床层最高点温度低于150℃时，才能将氢气引进系统。</p></div><input type="hidden" id="snum29" value="2">
+		  <input type="hidden" id="stype29" value="判断">
+		  <input type="hidden" id="biaojiv29" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan29" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan29" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji29" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti30" style="cursor:pointer;" onClick="xianshidaan2(30);" height="28px" >
+	     <td width="30px" align="center">30<div id="papercontent30" style="display:none;"><p>加氢脱金属时，金属在催化剂上沉积，从下层逐步向上层移动。（   ）</p></div><input type="hidden" id="snum30" value="2">
+		  <input type="hidden" id="stype30" value="判断">
+		  <input type="hidden" id="biaojiv30" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan30" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan30" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji30" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti31" style="cursor:pointer;" onClick="xianshidaan2(31);" height="28px" >
+	     <td width="30px" align="center">31<div id="papercontent31" style="display:none;"><p>物质的爆炸极限范围不是固定的。（   ）</p></div><input type="hidden" id="snum31" value="2">
+		  <input type="hidden" id="stype31" value="判断">
+		  <input type="hidden" id="biaojiv31" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan31" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan31" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji31" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti32" style="cursor:pointer;" onClick="xianshidaan2(32);" height="28px" >
+	     <td width="30px" align="center">32<div id="papercontent32" style="display:none;"><p>加热炉建成后，应立即进行点火升温烘炉。（   ）</p></div><input type="hidden" id="snum32" value="2">
+		  <input type="hidden" id="stype32" value="判断">
+		  <input type="hidden" id="biaojiv32" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan32" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan32" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji32" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti33" style="cursor:pointer;" onClick="xianshidaan2(33);" height="28px" >
+	     <td width="30px" align="center">33<div id="papercontent33" style="display:none;"><p>闪点越高，可燃液体越易起火，火灾危害性越大。（   ）</p></div><input type="hidden" id="snum33" value="2">
+		  <input type="hidden" id="stype33" value="判断">
+		  <input type="hidden" id="biaojiv33" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan33" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan33" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji33" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti34" style="cursor:pointer;" onClick="xianshidaan2(34);" height="28px" >
+	     <td width="30px" align="center">34<div id="papercontent34" style="display:none;"><p>各种硫化物加氢活性大小的顺序为：硫醇＞二硫化物＞硫醚≈四氢噻吩＞噻吩。（   ）</p></div><input type="hidden" id="snum34" value="2">
+		  <input type="hidden" id="stype34" value="判断">
+		  <input type="hidden" id="biaojiv34" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan34" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan34" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji34" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti35" style="cursor:pointer;" onClick="xianshidaan2(35);" height="28px" >
+	     <td width="30px" align="center">35<div id="papercontent35" style="display:none;"><p>加氢催化剂要求具备双活性。（   ）</p></div><input type="hidden" id="snum35" value="2">
+		  <input type="hidden" id="stype35" value="判断">
+		  <input type="hidden" id="biaojiv35" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan35" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan35" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji35" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti36" style="cursor:pointer;" onClick="xianshidaan2(36);" height="28px" >
+	     <td width="30px" align="center">36<div id="papercontent36" style="display:none;"><p>可燃气体和易燃液体的抽送、压缩设备的电机部分应为符合防爆等级要求的电气设备。否则应隔离设置。（   ）</p></div><input type="hidden" id="snum36" value="2">
+		  <input type="hidden" id="stype36" value="判断">
+		  <input type="hidden" id="biaojiv36" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan36" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan36" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji36" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti37" style="cursor:pointer;" onClick="xianshidaan2(37);" height="28px" >
+	     <td width="30px" align="center">37<div id="papercontent37" style="display:none;"><p>加氢催化剂主要特性是具有加氢–裂化两种反应性能的双功能催化剂。（   ）</p></div><input type="hidden" id="snum37" value="2">
+		  <input type="hidden" id="stype37" value="判断">
+		  <input type="hidden" id="biaojiv37" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan37" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan37" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji37" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti38" style="cursor:pointer;" onClick="xianshidaan2(38);" height="28px" >
+	     <td width="30px" align="center">38<div id="papercontent38" style="display:none;"><p>对混合时产生静电的物料，应加入抗静电剂等。（   ）</p></div><input type="hidden" id="snum38" value="2">
+		  <input type="hidden" id="stype38" value="判断">
+		  <input type="hidden" id="biaojiv38" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan38" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan38" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji38" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti39" style="cursor:pointer;" onClick="xianshidaan2(39);" height="28px" >
+	     <td width="30px" align="center">39<div id="papercontent39" style="display:none;"><p>临氢系统氮气置换的主要目的是置换干净系统内的空气，保证开工过程中的安全。（   ）</p></div><input type="hidden" id="snum39" value="2">
+		  <input type="hidden" id="stype39" value="判断">
+		  <input type="hidden" id="biaojiv39" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan39" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan39" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji39" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti40" style="cursor:pointer;" onClick="xianshidaan2(40);" height="28px" >
+	     <td width="30px" align="center">40<div id="papercontent40" style="display:none;"><p>高压瓦斯中硫化氢含量增加的主要危害是瓦斯的热值降低。（   ）</p></div><input type="hidden" id="snum40" value="2">
+		  <input type="hidden" id="stype40" value="判断">
+		  <input type="hidden" id="biaojiv40" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan40" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan40" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji40" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti41" style="cursor:pointer;" onClick="xianshidaan2(41);" height="28px" >
+	     <td width="30px" align="center">41<div id="papercontent41" style="display:none;"><p>加氢反应受原料性质影响很大。（   ）</p></div><input type="hidden" id="snum41" value="2">
+		  <input type="hidden" id="stype41" value="判断">
+		  <input type="hidden" id="biaojiv41" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan41" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan41" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji41" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti42" style="cursor:pointer;" onClick="xianshidaan2(42);" height="28px" >
+	     <td width="30px" align="center">42<div id="papercontent42" style="display:none;"><p>空速越大,处理量越大,经济效益越好。（   ）</p></div><input type="hidden" id="snum42" value="2">
+		  <input type="hidden" id="stype42" value="判断">
+		  <input type="hidden" id="biaojiv42" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan42" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan42" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji42" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti43" style="cursor:pointer;" onClick="xianshidaan2(43);" height="28px" >
+	     <td width="30px" align="center">43<div id="papercontent43" style="display:none;"><p>加氢装置内的电器、仪表设备均选用防爆型设备，管道、设备上安装防静电接地设施，要求接地电阻不大于100Ω。（   ）</p></div><input type="hidden" id="snum43" value="2">
+		  <input type="hidden" id="stype43" value="判断">
+		  <input type="hidden" id="biaojiv43" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan43" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan43" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji43" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti44" style="cursor:pointer;" onClick="xianshidaan2(44);" height="28px" >
+	     <td width="30px" align="center">44<div id="papercontent44" style="display:none;"><p>造成10人以上30人以下死亡，或者50人以上100人以下重伤，或者5000万元以上1亿元以下直接经济损失的事故,属于较大事故。（   ）</p></div><input type="hidden" id="snum44" value="2">
+		  <input type="hidden" id="stype44" value="判断">
+		  <input type="hidden" id="biaojiv44" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan44" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan44" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji44" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti45" style="cursor:pointer;" onClick="xianshidaan2(45);" height="28px" >
+	     <td width="30px" align="center">45<div id="papercontent45" style="display:none;"><p>空冷器是一种以空气代替冷却水作为冷却介质的换热器。（   ）</p></div><input type="hidden" id="snum45" value="2">
+		  <input type="hidden" id="stype45" value="判断">
+		  <input type="hidden" id="biaojiv45" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan45" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan45" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji45" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti46" style="cursor:pointer;" onClick="xianshidaan2(46);" height="28px" >
+	     <td width="30px" align="center">46<div id="papercontent46" style="display:none;"><p>我国现行国家标准GB6441—86《企业职工伤亡事故分类》中，将事故类别划分成20项。（   ）</p></div><input type="hidden" id="snum46" value="2">
+		  <input type="hidden" id="stype46" value="判断">
+		  <input type="hidden" id="biaojiv46" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan46" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan46" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji46" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti47" style="cursor:pointer;" onClick="xianshidaan2(47);" height="28px" >
+	     <td width="30px" align="center">47<div id="papercontent47" style="display:none;"><p>长期吸入某些较高浓度的生产性粉尘所引起的最常见的职业病是尘肺。（   ）</p></div><input type="hidden" id="snum47" value="2">
+		  <input type="hidden" id="stype47" value="判断">
+		  <input type="hidden" id="biaojiv47" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan47" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan47" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji47" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti48" style="cursor:pointer;" onClick="xianshidaan2(48);" height="28px" >
+	     <td width="30px" align="center">48<div id="papercontent48" style="display:none;"><p>在使用氧气呼吸器前清净罐内装填的氢氧化钙吸收剂应为粉红色圆柱状颗粒。如变为淡黄色，即为失效，应及时更换。（   ）</p></div><input type="hidden" id="snum48" value="2">
+		  <input type="hidden" id="stype48" value="判断">
+		  <input type="hidden" id="biaojiv48" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan48" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan48" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji48" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti49" style="cursor:pointer;" onClick="xianshidaan2(49);" height="28px" >
+	     <td width="30px" align="center">49<div id="papercontent49" style="display:none;"><p>爆炸性混合物的原始温度越高，爆炸极限的范围越大。（   ）</p></div><input type="hidden" id="snum49" value="2">
+		  <input type="hidden" id="stype49" value="判断">
+		  <input type="hidden" id="biaojiv49" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan49" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan49" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji49" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti50" style="cursor:pointer;" onClick="xianshidaan2(50);" height="28px" >
+	     <td width="30px" align="center">50<div id="papercontent50" style="display:none;"><p>在接触腐蚀性物质时，除应穿戴由耐腐蚀材料作成的劳动防护用品外，还要戴好防护眼镜。（   ）</p></div><input type="hidden" id="snum50" value="2">
+		  <input type="hidden" id="stype50" value="判断">
+		  <input type="hidden" id="biaojiv50" value="">
+	
+		 </td>
+		 <td width="40px" align="center">判断</td>
+		 <td width="80px" id="daan50" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan50" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji50" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti51" style="cursor:pointer;" onClick="xianshidaan2(51);" height="28px" >
+	     <td width="30px" align="center">51<div id="papercontent51" style="display:none;"><p>加氢装置停工过程中，为防止发生恶臭污染大气，需进行重点除臭的部位是（   ）。<br>A.反应系统<br>B.脱硫系统<br>C.分馏系统</p></div><input type="hidden" id="snum51" value="3">
+		  <input type="hidden" id="stype51" value="单选">
+		  <input type="hidden" id="biaojiv51" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan51" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan51" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji51" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti52" style="cursor:pointer;" onClick="xianshidaan2(52);" height="28px" >
+	     <td width="30px" align="center">52<div id="papercontent52" style="display:none;"><p>装置停工吹扫过程中，符合环保要求的是（   ）。<br>A.污染物敞口排放<br>B.污染物密闭排放<br>C.蒸塔汽直接放大气</p></div><input type="hidden" id="snum52" value="3">
+		  <input type="hidden" id="stype52" value="单选">
+		  <input type="hidden" id="biaojiv52" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan52" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan52" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji52" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti53" style="cursor:pointer;" onClick="xianshidaan2(53);" height="28px" >
+	     <td width="30px" align="center">53<div id="papercontent53" style="display:none;"><p>在热高分工艺流程中，反应系统注水点在（   ）。<br>A.反应器出口<br>B.冷高分气空冷前<br>C.热高分气空冷前</p></div><input type="hidden" id="snum53" value="3">
+		  <input type="hidden" id="stype53" value="单选">
+		  <input type="hidden" id="biaojiv53" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan53" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan53" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji53" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti54" style="cursor:pointer;" onClick="xianshidaan2(54);" height="28px" >
+	     <td width="30px" align="center">54<div id="papercontent54" style="display:none;"><p>下列选项中，不是高压窜低压现象的是（   ）。<br>A.新氢用量增加<br>B.低分温度上升<br>C.低分压力迅速上升</p></div><input type="hidden" id="snum54" value="3">
+		  <input type="hidden" id="stype54" value="单选">
+		  <input type="hidden" id="biaojiv54" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan54" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan54" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji54" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti55" style="cursor:pointer;" onClick="xianshidaan2(55);" height="28px" >
+	     <td width="30px" align="center">55<div id="papercontent55" style="display:none;"><p>中压废热锅炉或内径大于1m的低压废热锅炉属于（   ）。<br>A.一类压力容器<br>B.二类压力容器<br>C.三类压力容器</p></div><input type="hidden" id="snum55" value="3">
+		  <input type="hidden" id="stype55" value="单选">
+		  <input type="hidden" id="biaojiv55" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan55" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan55" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji55" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti56" style="cursor:pointer;" onClick="xianshidaan2(56);" height="28px" >
+	     <td width="30px" align="center">56<div id="papercontent56" style="display:none;"><p>加氢装置紧急泄压后，高压空冷冷却效果变差的原因是（   ）。<br>A.翘片脱落<br>B.管束结晶<br>C.气阻</p></div><input type="hidden" id="snum56" value="3">
+		  <input type="hidden" id="stype56" value="单选">
+		  <input type="hidden" id="biaojiv56" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan56" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan56" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji56" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti57" style="cursor:pointer;" onClick="xianshidaan2(57);" height="28px" >
+	     <td width="30px" align="center">57<div id="papercontent57" style="display:none;"><p>金属离子进入脱硫溶剂中会导致（   ）。<br>A.溶剂降解<br>B.溶剂碱性增强<br>C.再生塔顶腐蚀加剧</p></div><input type="hidden" id="snum57" value="3">
+		  <input type="hidden" id="stype57" value="单选">
+		  <input type="hidden" id="biaojiv57" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan57" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan57" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji57" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti58" style="cursor:pointer;" onClick="xianshidaan2(58);" height="28px" >
+	     <td width="30px" align="center">58<div id="papercontent58" style="display:none;"><p>流体的沸点与压力有关，压力降低，沸点（   ）。<br>A.升高<br>B.降低<br>C.不变</p></div><input type="hidden" id="snum58" value="3">
+		  <input type="hidden" id="stype58" value="单选">
+		  <input type="hidden" id="biaojiv58" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan58" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan58" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji58" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti59" style="cursor:pointer;" onClick="xianshidaan2(59);" height="28px" >
+	     <td width="30px" align="center">59<div id="papercontent59" style="display:none;"><p>在同样的压力下，氢气在钢材中的溶解度随温度的升高而（   ）。<br>A.降低<br>B.增加<br>C.不变</p></div><input type="hidden" id="snum59" value="3">
+		  <input type="hidden" id="stype59" value="单选">
+		  <input type="hidden" id="biaojiv59" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan59" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan59" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji59" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti60" style="cursor:pointer;" onClick="xianshidaan2(60);" height="28px" >
+	     <td width="30px" align="center">60<div id="papercontent60" style="display:none;"><p>一般来说，高温、高压介质应走（   ）。<br>A.对于U型换热器宜走壳程<br>B.管程<br>C.壳程</p></div><input type="hidden" id="snum60" value="3">
+		  <input type="hidden" id="stype60" value="单选">
+		  <input type="hidden" id="biaojiv60" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan60" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan60" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji60" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti61" style="cursor:pointer;" onClick="xianshidaan2(61);" height="28px" >
+	     <td width="30px" align="center">61<div id="papercontent61" style="display:none;"><p>冷氢的引出点一般在（   ）。<br>A.循环氢压缩机入口<br>B.循环氢压缩机出口<br>C.新氢机入口</p></div><input type="hidden" id="snum61" value="3">
+		  <input type="hidden" id="stype61" value="单选">
+		  <input type="hidden" id="biaojiv61" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan61" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan61" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji61" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti62" style="cursor:pointer;" onClick="xianshidaan2(62);" height="28px" >
+	     <td width="30px" align="center">62<div id="papercontent62" style="display:none;"><p>冷氢一般用于控制催化剂（   ）的温升。<br>A.上床层<br>B.下床层<br>C.整个床层</p></div><input type="hidden" id="snum62" value="3">
+		  <input type="hidden" id="stype62" value="单选">
+		  <input type="hidden" id="biaojiv62" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan62" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan62" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji62" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti63" style="cursor:pointer;" onClick="xianshidaan2(63);" height="28px" >
+	     <td width="30px" align="center">63<div id="papercontent63" style="display:none;"><p>装填催化剂时还要装入一定量的瓷球,瓷球的主要作用是（   ）。<br>A.防止运转中催化剂床层位移和下陷<br>B.防止油品在催化剂中形成短路<br>C.可以过滤油中杂质,保护催化剂</p></div><input type="hidden" id="snum63" value="3">
+		  <input type="hidden" id="stype63" value="单选">
+		  <input type="hidden" id="biaojiv63" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan63" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan63" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji63" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti64" style="cursor:pointer;" onClick="xianshidaan2(64);" height="28px" >
+	     <td width="30px" align="center">64<div id="papercontent64" style="display:none;"><p>循环氢压缩机入口分液罐顶部设有（   ）。<br>A.过滤网<br>B.约翰逊网<br>C.破沫网</p></div><input type="hidden" id="snum64" value="3">
+		  <input type="hidden" id="stype64" value="单选">
+		  <input type="hidden" id="biaojiv64" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan64" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan64" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji64" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti65" style="cursor:pointer;" onClick="xianshidaan2(65);" height="28px" >
+	     <td width="30px" align="center">65<div id="papercontent65" style="display:none;"><p>冷换设备吹扫，一程吹扫，另一程应（   ）。<br>A.打开放空阀<br>B.关闭放空阀<br>C.充压</p></div><input type="hidden" id="snum65" value="3">
+		  <input type="hidden" id="stype65" value="单选">
+		  <input type="hidden" id="biaojiv65" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan65" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan65" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji65" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti66" style="cursor:pointer;" onClick="xianshidaan2(66);" height="28px" >
+	     <td width="30px" align="center">66<div id="papercontent66" style="display:none;"><p>蒸汽温度和压力的对应关系是（   ）。<br>A.温度高，压力高<br>B.温度高，压力低<br>C.温度低，压力高</p></div><input type="hidden" id="snum66" value="3">
+		  <input type="hidden" id="stype66" value="单选">
+		  <input type="hidden" id="biaojiv66" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan66" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan66" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji66" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti67" style="cursor:pointer;" onClick="xianshidaan2(67);" height="28px" >
+	     <td width="30px" align="center">67<div id="papercontent67" style="display:none;"><p>下列不属于离心式压缩机叶轮部件的是（   ）。<br>A.轮盘<br>B.叶片<br>C.弯道</p></div><input type="hidden" id="snum67" value="3">
+		  <input type="hidden" id="stype67" value="单选">
+		  <input type="hidden" id="biaojiv67" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan67" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan67" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji67" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti68" style="cursor:pointer;" onClick="xianshidaan2(68);" height="28px" >
+	     <td width="30px" align="center">68<div id="papercontent68" style="display:none;"><p>新装置建成后，为检查管线是否畅通一般采用（   ）的方法进行确认。<br>A.爆破<br>B.贯通<br>C.气密</p></div><input type="hidden" id="snum68" value="3">
+		  <input type="hidden" id="stype68" value="单选">
+		  <input type="hidden" id="biaojiv68" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan68" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan68" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji68" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti69" style="cursor:pointer;" onClick="xianshidaan2(69);" height="28px" >
+	     <td width="30px" align="center">69<div id="papercontent69" style="display:none;"><p>压缩机处于临界转速时，机组将发生（   ）。<br>A.喘振<br>B.喘振与共振<br>C.共振</p></div><input type="hidden" id="snum69" value="3">
+		  <input type="hidden" id="stype69" value="单选">
+		  <input type="hidden" id="biaojiv69" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan69" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan69" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji69" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti70" style="cursor:pointer;" onClick="xianshidaan2(70);" height="28px" >
+	     <td width="30px" align="center">70<div id="papercontent70" style="display:none;"><p>正常停工过程中，装置切断进料时反应温度应（   ）。<br>A.降低到50℃以下<br>B.控制在200℃左右<br>C.控制在热氢带油的温度左右</p></div><input type="hidden" id="snum70" value="3">
+		  <input type="hidden" id="stype70" value="单选">
+		  <input type="hidden" id="biaojiv70" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan70" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan70" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji70" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti71" style="cursor:pointer;" onClick="xianshidaan2(71);" height="28px" >
+	     <td width="30px" align="center">71<div id="papercontent71" style="display:none;"><p>下列（   ）不是《安全生产法》明确从业人员权利。<br>A.指导权?<br>B.知情权?<br>C.紧急避险权?</p></div><input type="hidden" id="snum71" value="3">
+		  <input type="hidden" id="stype71" value="单选">
+		  <input type="hidden" id="biaojiv71" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan71" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan71" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji71" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti72" style="cursor:pointer;" onClick="xianshidaan2(72);" height="28px" >
+	     <td width="30px" align="center">72<div id="papercontent72" style="display:none;"><p>《中华人民共和国职业病防治法》规定劳动者享有要求用人单位提供符合职业病要求的职业病防治设施和（   ），改善工作条件的权利。<br>A.生产设备<br>B.工作用品?<br>C.个人使用的职业病防护用品?</p></div><input type="hidden" id="snum72" value="3">
+		  <input type="hidden" id="stype72" value="单选">
+		  <input type="hidden" id="biaojiv72" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan72" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan72" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji72" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti73" style="cursor:pointer;" onClick="xianshidaan2(73);" height="28px" >
+	     <td width="30px" align="center">73<div id="papercontent73" style="display:none;"><p>高压换热器一程试压，另一程（   ）。<br>A.密闭<br>B.打开放空<br>C.也要充压</p></div><input type="hidden" id="snum73" value="3">
+		  <input type="hidden" id="stype73" value="单选">
+		  <input type="hidden" id="biaojiv73" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan73" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan73" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji73" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti74" style="cursor:pointer;" onClick="xianshidaan2(74);" height="28px" >
+	     <td width="30px" align="center">74<div id="papercontent74" style="display:none;"><p>有毒易燃气体容器上的安全阀采用（   ）式。<br>A.敞开<br>B.封闭<br>C.半封闭</p></div><input type="hidden" id="snum74" value="3">
+		  <input type="hidden" id="stype74" value="单选">
+		  <input type="hidden" id="biaojiv74" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan74" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan74" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji74" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti75" style="cursor:pointer;" onClick="xianshidaan2(75);" height="28px" >
+	     <td width="30px" align="center">75<div id="papercontent75" style="display:none;"><p>汽轮机提速过程，气缸上（   ）。<br>A.间断疏水<br>B.没有疏水<br>C.应该连续疏水</p></div><input type="hidden" id="snum75" value="3">
+		  <input type="hidden" id="stype75" value="单选">
+		  <input type="hidden" id="biaojiv75" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan75" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan75" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji75" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti76" style="cursor:pointer;" onClick="xianshidaan2(76);" height="28px" >
+	     <td width="30px" align="center">76<div id="papercontent76" style="display:none;"><p>汽轮机“滑参数停机”过程中蒸汽的压力和温度（   ）。<br>A.逐渐降低<br>B.逐渐提高<br>C.保持不变</p></div><input type="hidden" id="snum76" value="3">
+		  <input type="hidden" id="stype76" value="单选">
+		  <input type="hidden" id="biaojiv76" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan76" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan76" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji76" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti77" style="cursor:pointer;" onClick="xianshidaan2(77);" height="28px" >
+	     <td width="30px" align="center">77<div id="papercontent77" style="display:none;"><p>由强酸、强碱、磷和氢氟酸等化学物质所引起的灼伤被称为（   ）。<br>A.复合性灼伤<br>B.热力灼伤<br>C.化学灼伤</p></div><input type="hidden" id="snum77" value="3">
+		  <input type="hidden" id="stype77" value="单选">
+		  <input type="hidden" id="biaojiv77" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan77" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan77" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji77" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti78" style="cursor:pointer;" onClick="xianshidaan2(78);" height="28px" >
+	     <td width="30px" align="center">78<div id="papercontent78" style="display:none;"><p>氢气和（   ）的混合物在低温和黑暗环境就能发生自发性爆炸。<br>A.氯<br>B.氧<br>C.氟</p></div><input type="hidden" id="snum78" value="3">
+		  <input type="hidden" id="stype78" value="单选">
+		  <input type="hidden" id="biaojiv78" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan78" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan78" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji78" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti79" style="cursor:pointer;" onClick="xianshidaan2(79);" height="28px" >
+	     <td width="30px" align="center">79<div id="papercontent79" style="display:none;"><p>引起中毒性眼病最典型的毒物为三硝基甲苯和（   ）。<br>A.汽油<br>B.乙醇<br>C.甲醇</p></div><input type="hidden" id="snum79" value="3">
+		  <input type="hidden" id="stype79" value="单选">
+		  <input type="hidden" id="biaojiv79" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan79" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan79" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji79" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti80" style="cursor:pointer;" onClick="xianshidaan2(80);" height="28px" >
+	     <td width="30px" align="center">80<div id="papercontent80" style="display:none;"><p>《安全生产法》明确了对我国安全生产具有责任的各方包括政府责任方、生产经营单位责任方、从业人员责任方和（   ）。<br>A.中介机构责任方?<br>B.施工责任方<br>C.运输责任方</p></div><input type="hidden" id="snum80" value="3">
+		  <input type="hidden" id="stype80" value="单选">
+		  <input type="hidden" id="biaojiv80" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan80" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan80" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji80" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti81" style="cursor:pointer;" onClick="xianshidaan2(81);" height="28px" >
+	     <td width="30px" align="center">81<div id="papercontent81" style="display:none;"><p>汽轮机提速过程应（   ）。<br>A.一部到位<br>B.分两个阶段<br>C.分几个阶段</p></div><input type="hidden" id="snum81" value="3">
+		  <input type="hidden" id="stype81" value="单选">
+		  <input type="hidden" id="biaojiv81" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan81" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan81" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji81" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti82" style="cursor:pointer;" onClick="xianshidaan2(82);" height="28px" >
+	     <td width="30px" align="center">82<div id="papercontent82" style="display:none;"><p>高温氢腐蚀是由于（   ）而至。<br>A.氢和金属中不稳定的碳化物发生化学反应<br>B.氢渗入金属内部<br>C.氢和钢发生反应</p></div><input type="hidden" id="snum82" value="3">
+		  <input type="hidden" id="stype82" value="单选">
+		  <input type="hidden" id="biaojiv82" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan82" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan82" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji82" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti83" style="cursor:pointer;" onClick="xianshidaan2(83);" height="28px" >
+	     <td width="30px" align="center">83<div id="papercontent83" style="display:none;"><p>高压进料泵停，反应加热炉应（   ）。<br>A.保持正常运行<br>B.停炉<br>C.视情况而定是否停</p></div><input type="hidden" id="snum83" value="3">
+		  <input type="hidden" id="stype83" value="单选">
+		  <input type="hidden" id="biaojiv83" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan83" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan83" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji83" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti84" style="cursor:pointer;" onClick="xianshidaan2(84);" height="28px" >
+	     <td width="30px" align="center">84<div id="papercontent84" style="display:none;"><p>催化剂装填时，保护剂一般装于反应器的（   ）。<br>A.底部<br>B.中部<br>C.顶部</p></div><input type="hidden" id="snum84" value="3">
+		  <input type="hidden" id="stype84" value="单选">
+		  <input type="hidden" id="biaojiv84" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan84" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan84" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji84" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti85" style="cursor:pointer;" onClick="xianshidaan2(85);" height="28px" >
+	     <td width="30px" align="center">85<div id="papercontent85" style="display:none;"><p>压缩机运转发出的噪声属于（   ）。<br>A.机械性噪声?<br>B.电磁性噪声?<br>C.空气动力噪声</p></div><input type="hidden" id="snum85" value="3">
+		  <input type="hidden" id="stype85" value="单选">
+		  <input type="hidden" id="biaojiv85" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan85" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan85" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji85" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti86" style="cursor:pointer;" onClick="xianshidaan2(86);" height="28px" >
+	     <td width="30px" align="center">86<div id="papercontent86" style="display:none;"><p>往复式压缩机的排量与（   ）无关。<br>A.压缩机的负荷<br>B.活塞的行程<br>C.出口背压</p></div><input type="hidden" id="snum86" value="3">
+		  <input type="hidden" id="stype86" value="单选">
+		  <input type="hidden" id="biaojiv86" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan86" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan86" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji86" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti87" style="cursor:pointer;" onClick="xianshidaan2(87);" height="28px" >
+	     <td width="30px" align="center">87<div id="papercontent87" style="display:none;"><p>喷漆车间欲处理其作业场所中散发的苯蒸气，宜采取（   ）回收净化方法。<br>A.热力燃烧<br>B.催化燃烧<br>C.冷凝<br>D.活性炭吸附</p></div><input type="hidden" id="snum87" value="4">
+		  <input type="hidden" id="stype87" value="单选">
+		  <input type="hidden" id="biaojiv87" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan87" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan87" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji87" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti88" style="cursor:pointer;" onClick="xianshidaan2(88);" height="28px" >
+	     <td width="30px" align="center">88<div id="papercontent88" style="display:none;"><p>催化剂预硫化时，初期引氢进系统，反应器最高温度要（   ）。<br>A.小于150℃<br>B.大于150℃<br>C.大于180℃</p></div><input type="hidden" id="snum88" value="3">
+		  <input type="hidden" id="stype88" value="单选">
+		  <input type="hidden" id="biaojiv88" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan88" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan88" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji88" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti89" style="cursor:pointer;" onClick="xianshidaan2(89);" height="28px" >
+	     <td width="30px" align="center">89<div id="papercontent89" style="display:none;"><p>危急遮断器是汽轮机的（   ）保护设备。<br>A.流量<br>B.轴振动<br>C.转速</p></div><input type="hidden" id="snum89" value="3">
+		  <input type="hidden" id="stype89" value="单选">
+		  <input type="hidden" id="biaojiv89" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan89" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan89" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji89" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti90" style="cursor:pointer;" onClick="xianshidaan2(90);" height="28px" >
+	     <td width="30px" align="center">90<div id="papercontent90" style="display:none;"><p>对于高压容器，其液位计宜选用（   ）。<br>A.金属对夹式液位计<br>B.玻璃管式液位计<br>C.套管式液位计</p></div><input type="hidden" id="snum90" value="3">
+		  <input type="hidden" id="stype90" value="单选">
+		  <input type="hidden" id="biaojiv90" value="">
+	
+		 </td>
+		 <td width="40px" align="center">单选</td>
+		 <td width="80px" id="daan90" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan90" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji90" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti91" style="cursor:pointer;" onClick="xianshidaan2(91);" height="28px" >
+	     <td width="30px" align="center">91<div id="papercontent91" style="display:none;"><p>清洁生产是工业企业防治污染的方向，清洁生产的内容可概括为（   ）。<br>A.清洁的原料<br>	B.清洁的生产过程<br>	C.清洁的产品	<br>D.清洁的能源</p></div><input type="hidden" id="snum91" value="4">
+		  <input type="hidden" id="stype91" value="多选">
+		  <input type="hidden" id="biaojiv91" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan91" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan91" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji91" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti92" style="cursor:pointer;" onClick="xianshidaan2(92);" height="28px" >
+	     <td width="30px" align="center">92<div id="papercontent92" style="display:none;"><p>炉管结焦的现象有（   ）。<br>A.炉管外壁出现亮斑<br>	B.炉膛氧含量下降<br>	C.炉管压降增加<br>	D.炉出口温度发生波动</p></div><input type="hidden" id="snum92" value="4">
+		  <input type="hidden" id="stype92" value="多选">
+		  <input type="hidden" id="biaojiv92" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan92" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan92" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji92" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti93" style="cursor:pointer;" onClick="xianshidaan2(93);" height="28px" >
+	     <td width="30px" align="center">93<div id="papercontent93" style="display:none;"><p>有毒作业环境管理主要抓好（   ）。<br>A.组织管理措施<br>B.定期进行作业环境的监测<br>C.严格执行“三同时”方针<br>D.及时识别作业场所出现的新的有毒物质</p></div><input type="hidden" id="snum93" value="4">
+		  <input type="hidden" id="stype93" value="多选">
+		  <input type="hidden" id="biaojiv93" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan93" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan93" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji93" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti94" style="cursor:pointer;" onClick="xianshidaan2(94);" height="28px" >
+	     <td width="30px" align="center">94<div id="papercontent94" style="display:none;"><p>一切新建、改建、扩建工程项目的三同时是指（   ）。<br>A.同时验收	<br>B.同时设计<br>	C.同时施工<br>	D.同时投产</p></div><input type="hidden" id="snum94" value="4">
+		  <input type="hidden" id="stype94" value="多选">
+		  <input type="hidden" id="biaojiv94" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan94" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan94" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji94" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti95" style="cursor:pointer;" onClick="xianshidaan2(95);" height="28px" >
+	     <td width="30px" align="center">95<div id="papercontent95" style="display:none;"><p>以下电加热的安全操作说法正确的是（   ）。<br>A.用电炉加热易燃物质时，应采取封闭式电炉。<br>B.用电感加热时应保证设备的安全可靠程度。<br>C.注意被加热物料的危险特性，严禁物料过热分解发生爆炸。<br>D.加热通风以防止形成爆炸性混合物。</p></div><input type="hidden" id="snum95" value="4">
+		  <input type="hidden" id="stype95" value="多选">
+		  <input type="hidden" id="biaojiv95" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan95" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan95" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji95" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti96" style="cursor:pointer;" onClick="xianshidaan2(96);" height="28px" >
+	     <td width="30px" align="center">96<div id="papercontent96" style="display:none;"><p>常用除尘装置有（   ）。<br>A.机械式除尘器<br>B.湿式除尘器<br>C.过滤式除尘器<br>D.静电除尘器</p></div><input type="hidden" id="snum96" value="4">
+		  <input type="hidden" id="stype96" value="多选">
+		  <input type="hidden" id="biaojiv96" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan96" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan96" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji96" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti97" style="cursor:pointer;" onClick="xianshidaan2(97);" height="28px" >
+	     <td width="30px" align="center">97<div id="papercontent97" style="display:none;"><p>防火防爆设备可以分为阻火设备与防爆泄压设备两类。（   ）属于阻火设备。<br>A.安全液封<br>B.水封井<br>C.阻火器<br>D.防爆门</p></div><input type="hidden" id="snum97" value="4">
+		  <input type="hidden" id="stype97" value="多选">
+		  <input type="hidden" id="biaojiv97" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan97" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan97" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji97" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti98" style="cursor:pointer;" onClick="xianshidaan2(98);" height="28px" >
+	     <td width="30px" align="center">98<div id="papercontent98" style="display:none;"><p>燃烧的三要素是（   ）。<br>A.可燃物质<br>B.点火源<br>C.助燃物质<br>D.温度</p></div><input type="hidden" id="snum98" value="4">
+		  <input type="hidden" id="stype98" value="多选">
+		  <input type="hidden" id="biaojiv98" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan98" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan98" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji98" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti99" style="cursor:pointer;" onClick="xianshidaan2(99);" height="28px" >
+	     <td width="30px" align="center">99<div id="papercontent99" style="display:none;"><p>发生高压窜低压后，应采取的有效措施是（   ）。<br>A.降低系统压力	<br>B.立刻关闭高低分之间的阀组<br>	C.低分泄压<br>	D.切断装置进料</p></div><input type="hidden" id="snum99" value="4">
+		  <input type="hidden" id="stype99" value="多选">
+		  <input type="hidden" id="biaojiv99" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan99" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan99" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji99" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	 
+	   <Tr id="ti100" style="cursor:pointer;" onClick="xianshidaan2(100);" height="28px" >
+	     <td width="30px" align="center">100<div id="papercontent100" style="display:none;"><p>加氢过程带有固有危险性，主要包括（   ）。<br>A.火灾危险性	<br>B.爆炸危险性<br>	C.中毒危害性<br>	D.腐蚀</p></div><input type="hidden" id="snum100" value="4">
+		  <input type="hidden" id="stype100" value="多选">
+		  <input type="hidden" id="biaojiv100" value="">
+	
+		 </td>
+		 <td width="40px" align="center">多选</td>
+		 <td width="80px" id="daan100" align="center">&nbsp;</td>
+		 <td width="140px" id="pingjuan100" align="center">&nbsp;</td>
+		 <Td width="40px" align="center" id="biaoji100" style="color:#000000">&nbsp;</Td>
+		               
+	   </Tr>
+	   
+	  
+	  </table>		 
+	</div>         
+	</fieldset>	  
+</td>
+</tr>
+</table>
+	
+	
+	
+	
+  </td>
+  <td  valign="top" bgcolor="FFFFFF" width="80%" >
+	<table width="100%" cellpadding="0" cellspacing="0">
+	 <tr>
+	  <td>
+      <div id="toptitle" align="left" style="border-bottom:1px solid; background-color:#ECE9D8; height:40px">
+      <span class="STYLE8" >危险化学品安全作业-加氢工艺作业</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" name="Submit2" value="↑加大字体" onClick="document.getElementById('ppmain').style.fontSize=font1+5;font1=font1+5;">
+<input type="button" name="Submit2" value="↓缩小字体" onClick="document.getElementById('ppmain').style.fontSize=font1-5;font1=font1-5;">
+      </div>
+	<div id="ppmain" align="left" style=" font-size:30px;height:460;overflow:auto; border-right:1px solid; border-left:1px solid; border-bottom:1px solid">
+   </div>
+	
+         
+	    <script language='javascript'>
+var s ="错误,正确,正确,错误,正确,正确,正确,正确,正确,正确,正确,错误,正确,正确,正确,正确,错误,正确,错误,正确,正确,错误,错误,正确,正确,错误,正确,正确,正确,错误,正确,错误,错误,正确,正确,正确,正确,正确,正确,错误,正确,错误,错误,错误,正确,正确,正确,正确,正确,错误,B,B,C,B,C,A,A,B,B,B,B,B,A,C,A,A,C,B,C,C,A,C,C,B,C,A,C,C,C,A,C,A,B,C,C,C,D,A,C,A,ABCD,ACD,ABCD,BCD,ABCD,ABCD,ABC,ABC,BC,ABCD,0"
+PaperAnswer=s.split(",") 
+</script>
+
+        
+  </td>
+  </tr>
+  <tr>
+    <td height="50" bgcolor="D8E4F8"><br>
+<fieldset id="" class="fiedset">
+      <legend><span class="STYLE6 STYLE28 STYLE24">第<span id="iiicount1"></span>题。选择您认为正确的答案</span>	  </legend>
+		<br>
+        <span id="xuanxiang" class="STYLE22">
+<input type="radio" name="T_1" value="正确" onClick="MM_popupMsg(this,1);"><font size="5"><strong>正确</strong></font>&nbsp;&nbsp;&nbsp;<input type="radio" name="T_1" value="错误" onClick="MM_popupMsg(this,1);"><font size="5"><strong>错误</strong></font>
+   		</span><br>
+		<br>
+</fieldset></td>
+  </tr>
+  <tr>
+    <td height="50" bgcolor="ECE9D8"><input type="button" style="height:30px; width:80px; font-size:18px" name="Submit5" value="第一题" onClick="gundong1(1);AllContent();">
+      <input type="button" style="height:30px; width:80px; font-size:18px" name="Submit3" value="上一题" onClick=" gundong1(tempi-1);AllContent(); ">
+      <input type="button" style="height:30px; width:80px; font-size:18px" name="Submit4" value="下一题" onClick="gundong1(tempi+1);AllContent();">
+      <input type="button" style="height:30px; width:80px; font-size:18px" name="Submit52" value="最后题" onClick="gundong1(ticount);AllContent();">
+      <input type="button" style="height:30px; width:80px; font-size:18px" name="Submit53" value="计算器" onClick="calc();AllContent();">
+      <input type="button" style="height:30px; width:100px; font-size:18px" id="biaojibutton" name="biaojibutton" onClick="biaoji();AllContent();" value=" 标记 ">
+
+ 
+	  <input type="hidden" name="scgtime" id="scgtime" value="9999">
+
+    </td>
+	  </tr>
+	  <tr>
+    	<td valign="top" bgcolor="ECE9D8">
+      <span class="STYLE17">
+      <input type="submit" style="height:30px; width:80px; font-size:18px" name="Submit55" value="判断题" onClick="gundong1(pan);AllContent();">
+      <input type="submit" style="height:30px; width:80px; font-size:18px" name="Submit522" value="单选题" onClick="gundong1(dan);AllContent();">
+      <input type="submit" style="height:30px; width:80px; font-size:18px" name="Submit523" value="多选题" onClick="gundong1(duo);AllContent();">
+      <input type="submit" style="height:30px; width:80px; font-size:18px" name="Submit5232" value="未答题" onClick="noanswer();AllContent();">
+     <span id="miaosu"></span><br>
+<br>
+      </span></td>
+	  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+		 
+
+<script language="javascript">
+  function   window.onbeforeunload()   
+  {     
+  window.event.returnValue="是否确定退出考试?";        
+  } 
+  
+  function tjbok()
+  {
+  	clearTimeout(timeid);
+		
+	for(var   i   =   0;   i   <   document.all.tags("INPUT").length;   i++)   
+  		{   
+  		  document.all.tags("INPUT")[i].disabled   =   true;   
+  		}
+	    document.all.tjb.style.filter="Gray";
+
+
+  }  
+function   SendPaper()   //显示交卷确认层，点确认调用fullwin()交卷
+{
+   var cfmt=confirm("\n\n\n\t提交试卷之后不能更改！\n\n\t请点击“未答题”查看未作答题目，是否立即提交试卷？\n\n\t按“是”将提交试卷；\n\n\t按“否”将继续考试。") 
+   if(cfmt){
+
+	    fullwin();
+    }
+}
+function formatanswer(pa){
+var i,l,s;
+    s="      ";
+	i=pa.length;
+	return (pa+s.substring(0,6-i));
+    
+}
+
+
+   
+
+
+
+ 
+
+function MM_popupMsg(obj,ti) { //v1.0
+   var type1=document.getElementById('stype'+ti).value;
+   var duopd=0;
+   var  arr  =  document.all(obj.name)  ;  
+   var s,rs;
+   if(arr){  
+           if  (arr.length>1){//有多个单选
+  		         s="";  
+                 for(var  i  =0;i<arr.length;i++){  
+                       if(arr[i].checked){  
+                        s=s+arr[i].value;
+						arr[i].style.background="#FF0000";
+						 if(PaperAnswer[ti-1].indexOf(arr[i].value)==-1){duopd=1;}//判断是否有个答案不是正确中的一个。
+						 
+                       }
+					   else
+					    arr[i].style.background="#ffffff";
+					     
+                 } 
+				 UserAnswer[ti]=s;
+
+				 if(type1=='多选'){ 
+				 	if(s==PaperAnswer[ti-1])
+					{
+						 document.getElementById('daan'+ti).innerHTML=s;
+						 document.getElementById('pingjuan'+ti).innerHTML='<font  color="#FF0000"><strong>√</strong></font>&nbsp;'+PaperAnswer[ti-1];
+						 panjuan[ti-1]=1;
+					}
+					else 
+					{  
+					  if(s==""){
+					      document.getElementById('daan'+ti).innerHTML=s;
+						  document.getElementById('pingjuan'+ti).innerHTML='<font  color="#FF0000"><strong>×</strong></font>&nbsp;'+PaperAnswer[ti-1];
+						  panjuan[ti-1]=0;
+					   }
+					   else if(duopd==0){
+					 	  document.getElementById('daan'+ti).innerHTML=s;
+					      document.getElementById('pingjuan'+ti).innerHTML='<font  color="#FF0000"><strong>不全对</strong></font>&nbsp;'+PaperAnswer[ti-1];
+						  panjuan[ti-1]=0.5;
+						 }
+						 else
+						 {
+						  document.getElementById('daan'+ti).innerHTML=s;
+						  document.getElementById('pingjuan'+ti).innerHTML='<font  color="#FF0000"><strong>×</strong></font>&nbsp;'+PaperAnswer[ti-1];
+						  panjuan[ti-1]=0;
+						 }
+					
+					}
+				 
+				 }
+				 else{
+					 if(s==PaperAnswer[ti-1])
+					  {
+						 document.getElementById('daan'+ti).innerHTML=s;
+						 document.getElementById('pingjuan'+ti).innerHTML='<font  color="#FF0000"><strong>√</strong></font>&nbsp;'+PaperAnswer[ti-1];
+						 panjuan[ti-1]=1;
+					   }
+					 else
+					  {
+						 document.getElementById('daan'+ti).innerHTML=s;
+						 document.getElementById('pingjuan'+ti).innerHTML='<font  color="#FF0000"><strong>×</strong></font>&nbsp;'+PaperAnswer[ti-1];
+						 panjuan[ti-1]=0;
+					   }
+					 }
+				 //document.all.ddqq.innerHTML=ddqk();
+				
+				// if(!hideanswer)document.getElementById("zqdas").onclick();
+				// if(ti<41)return(" ");
+				// if(s.length>0) return("<font color=#FF0000><B>" + s + "</b></font>");
+				// if(s.length==0) return(" ");
+
+           }  
+
+   }   
+ 
+}
+
+
+
+function xianshidaan2(inum)
+{var stemp='';
+
+
+if(inum<=0){inum=1;}
+else if (inum>ticount){inum=ticount;}
+ytempi=tempi;
+tempi=inum;
+
+document.getElementById('ppmain').innerHTML='<br>'+document.getElementById('papercontent'+inum).innerHTML;
+
+document.getElementById('iiicount').innerHTML=inum;
+document.getElementById('iiicount1').innerHTML=inum;
+
+//if{document.getElementById('biaoji1').innerHTML=="&nbsp;"){alert(9);}
+
+
+var type1=document.getElementById('stype'+inum).value;
+var subs=document.getElementById('snum'+inum).value;
+
+if(document.getElementById('biaojiv'+tempi).value==''){
+document.getElementById('biaojibutton').value='标记';}
+else
+{
+document.getElementById('biaojibutton').value='去除标记';}
+
+
+
+
+pantemp0='checked="true" style="background:#FF0000;"';
+pantemp1='';
+pantemp2='';
+pantemp3='';
+pantemp4='';
+pantemp5='';
+pantemp6='';
+pantemp7='';
+pantemp8='';
+
+if(type1=='判断'){ 
+document.getElementById('miaosu').innerHTML=panmiao;
+
+ if(UserAnswer[inum]=='正确'){pantemp1=pantemp0;}
+ else if(UserAnswer[inum]=='错误'){pantemp2=pantemp0;}
+
+document.all.xuanxiang.innerHTML='<input type="radio" name="T_'+inum+'" value="正确" onClick="MM_popupMsg(this,'+inum+');" '+pantemp1+'><font size="5"><strong>正确</strong></font>&nbsp;&nbsp;&nbsp;<input type="radio" name="T_'+inum+'" value="错误" onClick="MM_popupMsg(this,'+inum+');" '+pantemp2+'><font size="5"><strong>错误</strong></font>';
+
+
+}
+else if(type1=='单选'){ 
+document.getElementById('miaosu').innerHTML=danmiao;
+ if(UserAnswer[inum]=='A'){pantemp1=pantemp0;}
+ else if(UserAnswer[inum]=='B'){pantemp2=pantemp0;}
+ else if(UserAnswer[inum]=='C'){pantemp3=pantemp0;}
+ else if(UserAnswer[inum]=='D'){pantemp4=pantemp0;}
+			if(subs>=1){
+			stemp=stemp+'<input type="radio" name="T_'+inum+'" value="A" onClick="MM_popupMsg(this,'+inum+')" '+pantemp1+'><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+			if(subs>=2){
+			stemp=stemp+'<input type="radio" name="T_'+inum+'" value="B" onClick="MM_popupMsg(this,'+inum+')" '+pantemp2+'><strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+			if(subs>=3){
+			stemp=stemp+'<input type="radio" name="T_'+inum+'" value="C" onClick="MM_popupMsg(this,'+inum+')" '+pantemp3+'><strong>C</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+			if(subs>=4){
+			stemp=stemp+'<input type="radio" name="T_'+inum+'" value="D" onClick="MM_popupMsg(this,'+inum+')" '+pantemp4+'><strong>D</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+			document.all.xuanxiang.innerHTML=stemp;
+         }
+		 else if(type1=='多选'){ 
+		 document.getElementById('miaosu').innerHTML=duomiao;
+		 
+		 tempUserAnswer=UserAnswer[inum];
+	
+		  if(tempUserAnswer.indexOf("A")!=-1){pantemp1=pantemp0;}
+		  if(tempUserAnswer.indexOf("B")!=-1){pantemp2=pantemp0;}
+		  if(tempUserAnswer.indexOf("C")!=-1){pantemp3=pantemp0;}
+		  if(tempUserAnswer.indexOf("D")!=-1){pantemp4=pantemp0;}
+		  if(tempUserAnswer.indexOf("E")!=-1){pantemp5=pantemp0;}
+		  if(tempUserAnswer.indexOf("F")!=-1){pantemp6=pantemp0;}
+		  if(tempUserAnswer.indexOf("G")!=-1){pantemp7=pantemp0;}
+		  if(tempUserAnswer.indexOf("H")!=-1){pantemp8=pantemp0;}
+ 
+						if(subs>=1){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="A" onClick="MM_popupMsg(this,'+inum+')" '+pantemp1+'><strong>A</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+						if(subs>=2){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="B" onClick="MM_popupMsg(this,'+inum+')" '+pantemp2+'><strong>B</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+						if(subs>=3){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="C" onClick="MM_popupMsg(this,'+inum+')" '+pantemp3+'><strong>C</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+						if(subs>=4){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="D" onClick="MM_popupMsg(this,'+inum+')" '+pantemp4+'><strong>D</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+						if(subs>=5){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="E" onClick="MM_popupMsg(this,'+inum+')" '+pantemp5+'><strong>E</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+						if(subs>=6){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="F" onClick="MM_popupMsg(this,'+inum+')" '+pantemp6+'><strong>F</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+						if(subs>=7){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="G" onClick="MM_popupMsg(this,'+inum+')" '+pantemp7+'><strong>G</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+						if(subs>=8){
+			stemp=stemp+'<input type="checkbox" name="T_'+inum+'" value="H" onClick="MM_popupMsg(this,'+inum+')" '+pantemp8+'><strong>H</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+			document.all.xuanxiang.innerHTML=stemp;
+
+	}
+
+document.getElementById('ti'+ytempi).style.backgroundColor='#ECE9D8';
+document.getElementById('ti'+tempi).style.backgroundColor='#00CCFF';
+
+}
+
+function biaoji(){
+	if(document.getElementById('biaojiv'+tempi).value==''){
+	document.getElementById('biaoji'+tempi).innerHTML='标记';
+	document.getElementById('biaojiv'+tempi).value='标记';
+	document.getElementById('biaojibutton').value='去除标记';}
+	else
+	{document.getElementById('biaojiv'+tempi).value='';
+	document.getElementById('biaoji'+tempi).innerHTML='&nbsp;';
+	document.getElementById('biaojibutton').value='标记';}
+}
+function noanswer(){//跳转到未答题显示。。。。
+var i=1;
+for(i=1;i<ticount+1;i++)
+{
+ if(UserAnswer[i]=="")
+  {break;}
+ }
+ if(i>ticount){
+ alert('您已答完所有题目！');
+ return false;}
+ 
+ self.location.href ='#ti'+i;//跳转。。。。。。。。。。。
+ xianshidaan2(i);            //显示题目。。。。。。。。。
+}
+function fullwin(){   //交卷 算分数
+var i=0,SCORE=0;
+  for(i=0;i<pannum;i++)
+    SCORE=SCORE+panscore*panjuan[i];
+  for(i=pannum;i<pannum+dannum;i++)
+    SCORE=SCORE+danscore*panjuan[i];
+  for(i=pannum+dannum;i<ticount;i++)
+    SCORE=SCORE+duoscore*panjuan[i];
+  SCORE=Math.round(SCORE);
+  alert("您的模拟考试成绩："+SCORE.toString()+"分；\n\n模拟考试结束，请关闭窗口退出！");
+  document.all.kscj.innerHTML="模拟考试成绩<br><font color=red size=6><strong>"+SCORE.toString()+"分</strong></font>"
+  tjbok();
+  //sub_win();  
+}
+function calc(){
+window.showModalDialog("Calculator.asp","paper1","dialogLeft:16;dialogtop:16;dialogWidth:16;dialogHeight:14.5;scroll:YES;status:no;resizable:0;help:0");
+}
+function gundong1(aaa){
+if(aaa<=0){aaa=1;}
+else if (aaa>ticount){aaa=ticount;}
+document.all.ppmainq.scrollTop=aaa*28-28;
+xianshidaan2(aaa);
+}
+
+</script>
+
+<script language="javascript">
+function   clock()   
+  {     yycount=yycount+1;
+		ttcount=ttcount-1;
+		document.all.ttccd.innerHTML="剩余时间："+parseInt(ttcount/60)+"分"+parseInt(ttcount%60)+"秒"
+		document.all.yiyongtime.innerHTML="<font color='green' size='6'><b>"+parseInt(yycount/60)+"分"+parseInt(yycount%60)+"秒</b></font>"
+			if(ttcount%document.all.scgtime.value==0)
+		{
+		//  ppmain.doScroll("Down");//向下滚屏。。。。
+		} 		
+		if(ttcount==300) alert("还有5分钟就会自动交卷，请做好交卷准备！");
+		if(ttcount<0){ 
+		 // if(document.all.tjb.disabled)  
+//		    fullwin();
+//          else ttcount=1;
+             fullwin();
+			 return false;   
+		}
+		else timeid=setTimeout("clock()",1000) 
+  }  
+clock();  
+xianshidaan2(1);
+
+</script>	
+
+<script language="javascript">
+function AllContent()   
+{
+document.getElementById('ppmain').style.fontSize=font1+5;font1=font1+5;document.getElementById('ppmain').style.fontSize=font1-5;font1=font1-5;
+}
+</script>	
+
+
+</body>
+</html>
